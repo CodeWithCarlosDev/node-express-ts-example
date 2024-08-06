@@ -25,7 +25,7 @@ const credentials: PoolOptions = {
 export default class MySQLConnection {
 
     private _conn: Pool;
-    private readonly _ERROR_CONNECT: string = "Error al conectar con la base de datos.. 🤦‍♂️🤷‍♂️🐱‍🏍";
+    private readonly _ERROR_CONNECT: string = "Error al conectar con la base de datos 🤦‍♂️🤷‍♂️🐱‍🏍 ..";
 
     constructor() {
         this._conn = createPool(credentials)
