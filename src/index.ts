@@ -4,6 +4,7 @@ import tweetsRouter from "./routes/tweetsRouter";
 const app = express();
 const PORT = 3000;
 
+app.use(express.json());
 app.use("/tweets", tweetsRouter);
 
 app.listen(PORT, () => {
