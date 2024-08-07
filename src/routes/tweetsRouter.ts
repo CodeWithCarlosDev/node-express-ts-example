@@ -10,6 +10,7 @@ import {
 const tweetsRouter = express.Router();
 
 tweetsRouter.get("/", getTweets);
+tweetsRouter.get("/:tweetId", getTweetsById);
 tweetsRouter.post("/", createTweet);
 tweetsRouter.delete("/:tweetId", deleteTweet);
 tweetsRouter.patch("/:tweetId", updateTweet);

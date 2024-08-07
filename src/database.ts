@@ -1,22 +1,19 @@
-import dotenv from "dotenv";
 import { createPool, Pool, PoolOptions } from "mysql2/promise";
-
-
-dotenv.config();
+import config from "./config";
 
 if (
-    !process.env.HOST ||
-    !process.env.PORT ||
-    !process.env.USER ||
-    !process.env.PASSWORD ||
-    !process.env.DATABASE
+    !config.host ||
+    !config.portbd ||
+    !config.user ||
+    !config.password ||
+    !config.database
 ) {
     throw new Error("Faltan variables de entornos requeridas..")
 }
 
 const credentials: PoolOptions = {
     host: process.env.HOST,
-    port: parseInt(process.env.PORT, 10),
+    port: typeof config.portbd === "string" ? parseInt(typeof config.portbd, 10) : config.portbd,
     user: process.env.USER,
     password: process.env.PASSWORD,
     database: process.env.DATABASE

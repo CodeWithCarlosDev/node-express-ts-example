@@ -1,8 +1,9 @@
 ﻿import express, { Request, Response } from "express";
+import config from "./config";
 import tweetsRouter from "./routes/tweetsRouter";
 
 const app = express();
-const PORT = 3000;
+const PORT = config.port;
 
 app.use(express.json());
 app.use("/tweets", tweetsRouter);
