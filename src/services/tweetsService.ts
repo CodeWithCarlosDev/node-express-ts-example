@@ -9,16 +9,16 @@ const createTweetsService = async (tweet: Tweet): Promise<{}> => {
     return await createTweet(tweet);
 }
 
-const getTweetsByIdService = async (tweetId: string): Promise<{}> => {
+const getTweetsByIdService = async (tweetId: number): Promise<{}> => {
     return await getTweetsById(tweetId);
 }
 
 
-const deleteTweetService = async (tweetId: string): Promise<any> => {
+const deleteTweetService = async (tweetId: number): Promise<any> => {
     return await deleteTweet(tweetId);
 }
 
-const updateTweetService = async (tweetId: string, tweet: Tweet): Promise<any> => {
+const updateTweetService = async (tweetId: number, tweet: Tweet): Promise<any> => {
     return await updateTweet(tweetId, tweet);
 }
 

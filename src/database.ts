@@ -34,6 +34,7 @@ export default class MySQLConnection {
             const connection = await this._conn.getConnection();
             connection.release();
         } catch (error) {
+            console.log("xxxx")
             throw new Error(this._ERROR_CONNECT + (error as Error).message)
         }
     }
@@ -43,4 +44,4 @@ export default class MySQLConnection {
     }
 
 
-}
+} 

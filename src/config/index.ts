@@ -3,7 +3,7 @@ import dotenv from "dotenv"
 dotenv.config();
 
 const config = {
-    dev: process.env.NODE_ENV === "production",
+    dev: process.env.NODE_ENV === "development",
     host: process.env.HOST,
     port: process.env.PORT || 3000,
     portbd: process.env.PORT_BD || 3000,

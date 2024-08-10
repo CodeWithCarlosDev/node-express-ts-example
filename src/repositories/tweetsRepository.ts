@@ -23,7 +23,7 @@ const getTweets = async (): Promise<Tweet[]> => {
     }
 }
 
-const getTweetsById = async (tweetId: string) => {
+const getTweetsById = async (tweetId: number) => {
     const baseDate = new MySQLConnection();
     const connection: Pool = baseDate.connection;
 
@@ -43,8 +43,9 @@ const createTweet = async (tweet: Tweet): Promise<{}> => {
     const connection: Pool = baseDate.connection;
 
     try {
-        const query = "INSERT INTO tweets SET ?";
-        const [tweetRes] = await connection.query<Tweet[]>(query, tweet);
+        const query = "INSERT INTO tweets (userID, content) values (?,?) ";
+        const values = [tweet.userID, tweet.content];
+        const [tweetRes] = await connection.query<Tweet[]>(query, values);
         return {
             tweetRes,
             tweet
@@ -56,7 +57,7 @@ const createTweet = async (tweet: Tweet): Promise<{}> => {
     }
 }
 
-const deleteTweet = async (tweetId: string) => {
+const deleteTweet = async (tweetId: number) => {
     const baseDate = new MySQLConnection();
     const connection: Pool = baseDate.connection;
 
@@ -71,7 +72,7 @@ const deleteTweet = async (tweetId: string) => {
     }
 }
 
-const updateTweet = async (tweetId: string, tweet: Tweet): Promise<{}> => {
+const updateTweet = async (tweetId: number, tweet: Tweet): Promise<{}> => {
     const baseDate = new MySQLConnection();
     const connection: Pool = baseDate.connection;
 
