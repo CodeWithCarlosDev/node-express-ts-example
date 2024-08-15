@@ -17,7 +17,7 @@ const updateTweetsShema = {
     content: tweetContentSchema
 }
 
-export = {
+module.exports = {
     tweetIdShema,
     createTweetShema,
     updateTweetsShema
