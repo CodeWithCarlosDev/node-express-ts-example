@@ -25,10 +25,6 @@ function createValidateMiddleware(validationSchema: ValidationSchema) {
     }
 
     return function validationMiddleware(req: Request, res: Response, next: NextFunction) {
-        console.log("validationMiddleware");
-        console.log(req[payloadKey]);
-        console.log("validationMiddleware");
-        console.log(joiSchema);
         const error = validate(req[payloadKey], joiSchema);
         error ? next(error) : next();
     }
